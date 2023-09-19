@@ -23,6 +23,9 @@ This is a NextJs app to manage class fees.
 ## Installation
 Open post.html file
 
+![api](https://github.com/dinithdiss/JsonData-Send-to-API/assets/103129079/47294c06-1ba1-4d9f-bc0b-a1f8e1338c4e)
+
+
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
