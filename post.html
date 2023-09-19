@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>API Testing</title>
+  </head>
+  <body>
+    <input type="file" id="file-input" onchange="readFile(event)" />
+    <select name="mySelect" id="mySelect">
+      <option value="http:localhost:4000/app/admin/tealine">Tealine</option>
+      <option value="http:localhost:4000/app/admin/herbline">Herbline</option>
+      <option value="http:localhost:4000/app/admin/blendsheet">
+        Blendsheet
+      </option>
+      <option value="http:localhost:3000/app/admin/location">Location</option>
+    </select>
+    <script>
+      function readFile(event) {
+        // Get the selected file
+        var file = event.target.files[0];
+
+        // Create a new FileReader object
+        var reader = new FileReader();
+
+        // Set the onload event handler for the FileReader
+        reader.onload = function (event) {
+          // The file content is available in event.target.result
+          var fileContent = event.target.result;
+          // You can now use the fileContent variable to access the content of the file
+          //console.log(fileContent);
+
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+
+          //   var raw = JSON.stringify({
+          //     item_code: "H2204284 test2244ghhgh44454545",
+          //     herbline_name: "Herbline alphghggha1 test2545454423",
+          //   });
+
+          var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: fileContent,
+            redirect: "follow",
+          };
+
+          fetch(mySelect.value, requestOptions)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
+        };
+        // console.log(fileContent);
+        // Start reading the file
+        reader.readAsText(file);
+      }
+    </script>
+  </body>
+</html>
